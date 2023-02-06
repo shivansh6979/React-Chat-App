@@ -5,6 +5,8 @@ import "./App.css";
 import Auth from "./components/Auth";
 import Chat from "./components/Chat";
 import { auth } from "./firebase-config";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const cookies = new Cookies();
 function App() {
@@ -22,16 +24,19 @@ function App() {
   if (!isLoggedIn) {
     return (
       <div className="App">
+        <Header />
         <Auth setIsLoggedIn={setIsLoggedIn} />
+        <Footer />
       </div>
     );
   } else
     return (
       <div>
+        <Header />
         {room ? (
           <Chat room={room} />
         ) : (
-          <div>
+          <div className="room">
             <label>Enter your Chat room :</label>
             <input ref={roomInputRef} />
             <button onClick={() => setRoom(roomInputRef.current.value)}>
@@ -42,6 +47,7 @@ function App() {
         <div>
           <button onClick={signOutHandler}>Sign Out</button>
         </div>
+        <Footer />
       </div>
     );
 }

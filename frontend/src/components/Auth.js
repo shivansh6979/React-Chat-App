@@ -16,7 +16,7 @@ const Auth = ({ setIsLoggedIn }) => {
     }
   };
   return (
-    <div>
+    <div className="auth">
       <button onClick={clickHandler}>Sign In With Google</button>
     </div>
   );

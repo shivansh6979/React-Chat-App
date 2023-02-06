@@ -46,7 +46,7 @@ const Chat = (props) => {
   };
 
   return (
-    <div>
+    <div className="chat">
       <h1>{room.toUpperCase()}</h1>
       <div>
         {messageUpdate.map((msg, index) => {
